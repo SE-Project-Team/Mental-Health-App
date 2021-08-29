@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    app:menu="@menu/nav">
 
     <Button
         android:id="@+id/quiz"
@@ -44,19 +45,6 @@
         app:layout_constraintHorizontal_bias="0.237"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/profile"
-        android:layout_width="125dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="60dp"
-        android:text="Profile"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/roundbutton"/>
 
     <Button
         android:id="@+id/news"
