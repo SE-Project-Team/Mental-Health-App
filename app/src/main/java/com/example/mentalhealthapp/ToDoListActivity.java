@@ -64,6 +64,7 @@ public class ToDoListActivity extends AppCompatActivity {
                              @Override
                              public void onClick(DialogInterface dialogInterface, int i) {
                                  toDoList.remove(which_item);
+                                 PrefConfig.writeListInPref(getApplicationContext(),toDoList);
                                  arrayAdapter.notifyDataSetChanged();
                              }
                          })
