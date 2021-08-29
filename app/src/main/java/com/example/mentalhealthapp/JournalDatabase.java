@@ -66,7 +66,7 @@ public class JournalDatabase extends SQLiteOpenHelper {
     public ArrayList<JournalEntry> getFilteredJournalEntries(int day,int month,int year){
         SQLiteDatabase db=this.getReadableDatabase();
         ArrayList<JournalEntry> journalEntries=new ArrayList<>();
-        String query="SELECT * FROM " + DATABASE_TABLE + " GROUP BY "+ "year" + " HAVING " + KEY_DAY + "="+day +
+        String query="SELECT * FROM " + DATABASE_TABLE + " WHERE " + KEY_DAY + "="+day +
                 " AND " + KEY_MONTH + "=" + month + " AND " + KEY_YEAR +"="+year + ";";
         Cursor cursor=db.rawQuery(query,null);
 
@@ -97,22 +97,22 @@ public class JournalDatabase extends SQLiteOpenHelper {
         db.close();
     }
 
-    public boolean updateJournal(JournalEntry journal,int id){
-        SQLiteDatabase db=this.getWritableDatabase();
-        ContentValues cv=new ContentValues();
-
-        cv.put(KEY_ID,id);
-        cv.put(KEY_TITLE,journal.getTitle());
-        cv.put(KEY_CONTENT,journal.getContent());
-        cv.put(KEY_DAY,journal.getDay());
-        cv.put(KEY_MONTH,journal.getMonth());
-        cv.put(KEY_YEAR,journal.getYear());
-
-        //Refer Documentation if doesn't work
-        int x = db.update(DATABASE_TABLE,cv,"_id=?",new String[]{String.valueOf(id)});
-        db.close();
-        return x>0;
-    }
+//    public boolean updateJournal(JournalEntry journal,int id){
+//        SQLiteDatabase db=this.getWritableDatabase();
+//        ContentValues cv=new ContentValues();
+//
+//        cv.put(KEY_ID,id);
+//        cv.put(KEY_TITLE,journal.getTitle());
+//        cv.put(KEY_CONTENT,journal.getContent());
+//        cv.put(KEY_DAY,journal.getDay());
+//        cv.put(KEY_MONTH,journal.getMonth());
+//        cv.put(KEY_YEAR,journal.getYear());
+//
+//        //Refer Documentation if doesn't work
+//        int x = db.update(DATABASE_TABLE,cv,"_id=?",new String[]{String.valueOf(id)});
+//        db.close();
+//        return x>0;
+//    }
 
     public boolean deleteJournal(String content){
         SQLiteDatabase db=this.getWritableDatabase();
