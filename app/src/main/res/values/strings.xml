@@ -34,4 +34,5 @@
         <string name="c8">Stress and Anxiety</string>
         <string name="cTotal">Total Score(Out of 100)</string>
 
+    <string name="description">describeButton</string>
 </resources>

@@ -1,11 +1,15 @@
 package com.example.mentalhealthapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -136,6 +140,8 @@ public class ScoreActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
     }
 
     private int getDateHash(String x){
@@ -150,4 +156,22 @@ public class ScoreActivity extends AppCompatActivity {
             return -1;
         }
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.explanation,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.describeButton:
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
 }
