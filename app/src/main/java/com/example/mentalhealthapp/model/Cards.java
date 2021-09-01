@@ -15,15 +15,15 @@ public class Cards {
         return imageProfile;
     }
 
-    public void setImageProfile(int imageProfile) {
-        this.imageProfile = imageProfile;
-    }
+//    public void setImageProfile(int imageProfile) {
+//        this.imageProfile = imageProfile;
+//    }
 
     public String getCardtext() {
         return cardtext;
     }
 
-    public void setCardtext(String  cardtext) {
-        this.cardtext = cardtext;
-    }
+//    public void setCardtext(String  cardtext) {
+//        this.cardtext = cardtext;
+//    }
 }

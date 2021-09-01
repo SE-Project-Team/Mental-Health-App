@@ -1,7 +1,6 @@
 package com.example.mentalhealthapp;
 
 public class JournalEntry {
-    //TODO has to link this with sqlite
     private int id;
     private String title;
     private String content;
@@ -40,24 +39,12 @@ public class JournalEntry {
         this.id = id;
     }
 
-    public void setDay(int day) {
-        this.day = day;
-    }
-
     public int getMonth() {
         return month;
     }
 
-    public void setMonth(int month) {
-        this.month = month;
-    }
-
     public int getYear() {
         return year;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
     }
 
     public String getTitle() {

@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -34,7 +33,6 @@ public class JournalActivity extends AppCompatActivity {
         fabActJournal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(JournalActivity.this,"Go to Writing Activity",Toast.LENGTH_SHORT).show();
                 Intent intent=new Intent(JournalActivity.this,Writing.class);
                 startActivity(intent);
             }
@@ -44,7 +42,6 @@ public class JournalActivity extends AppCompatActivity {
         fabCalendar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(JournalActivity.this,"Go to Calendar Activity",Toast.LENGTH_SHORT).show();
                 Intent intent =new Intent(JournalActivity.this,CalendarActivity.class);
                 startActivity(intent);
             }
@@ -52,7 +49,6 @@ public class JournalActivity extends AppCompatActivity {
         journalEntries=db.getJournalEntries();
         JournalPreviewAdapter adapter=new JournalPreviewAdapter(journalEntries,JournalActivity.this);
         recyclerView.setAdapter(adapter);
-//        journalRec.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,true));
     }
 

@@ -47,7 +47,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         final Articles a = articles.get(position);
 
         String imageUrl = a.getUrlToImage();
-        String url = a.getUrl();
+//        String url = a.getUrl();
 
         Picasso.with(context).load(imageUrl).into(holder.imageView);
 

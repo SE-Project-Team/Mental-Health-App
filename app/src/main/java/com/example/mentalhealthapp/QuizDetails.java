@@ -15,23 +15,12 @@ public class QuizDetails {
         return quizScoreTotal;
     }
 
-    public void setQuizScoreTotal(int quizScoreTotal) {
-        this.quizScoreTotal = quizScoreTotal;
-    }
-
     public float[] getCategoryScores() {
         return categoryScores;
-    }
-
-    public void setCategoryScores(float[] categoryScores) {
-        this.categoryScores = categoryScores;
     }
 
     public int getQuizDateHash() {
         return quizDateHash;
     }
 
-    public void setQuizDateHash(int quizDateHash) {
-        this.quizDateHash = quizDateHash;
-    }
 }

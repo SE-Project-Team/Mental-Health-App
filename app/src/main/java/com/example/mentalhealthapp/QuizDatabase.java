@@ -72,21 +72,21 @@ public class QuizDatabase extends SQLiteOpenHelper {
         return quizEntries;
     }
 
-    public ArrayList<QuizDetails> getFilteredQuizEntries(int hash1,int hash2){
-        SQLiteDatabase db=this.getReadableDatabase();
-        ArrayList<QuizDetails> quizEntries=new ArrayList<>();
-        String query="SELECT * FROM " + DATABASE_TABLE + " WHERE " + KEY_DATE_HASH + ">="+hash1 +
-                " AND " + KEY_DATE_HASH + "<=" + hash2 + ";";
-        Cursor cursor=db.rawQuery(query,null);
-
-        if(cursor.moveToFirst()){
-
-        }
-
-        cursor.close();
-        db.close();
-        return quizEntries;
-    }
+//    public ArrayList<QuizDetails> getFilteredQuizEntries(int hash1,int hash2){
+//        SQLiteDatabase db=this.getReadableDatabase();
+//        ArrayList<QuizDetails> quizEntries=new ArrayList<>();
+//        String query="SELECT * FROM " + DATABASE_TABLE + " WHERE " + KEY_DATE_HASH + ">="+hash1 +
+//                " AND " + KEY_DATE_HASH + "<=" + hash2 + ";";
+//        Cursor cursor=db.rawQuery(query,null);
+//
+//        if(cursor.moveToFirst()){
+//
+//        }
+//
+//        cursor.close();
+//        db.close();
+//        return quizEntries;
+//    }
 
     public void addNewQuiz(QuizDetails quiz){
         SQLiteDatabase db=this.getWritableDatabase();
@@ -107,22 +107,21 @@ public class QuizDatabase extends SQLiteOpenHelper {
         db.close();
     }
 
-    public boolean updateQuiz(QuizDetails quiz,int id){
-        SQLiteDatabase db=this.getWritableDatabase();
-        ContentValues cv=new ContentValues();
+//    public boolean updateQuiz(QuizDetails quiz,int id){
+//        SQLiteDatabase db=this.getWritableDatabase();
+//        ContentValues cv=new ContentValues();
+//
+//        //Refer Documentation if doesn't work
+//        int x = db.update(DATABASE_TABLE,cv,"_id=?",new String[]{String.valueOf(id)});
+//        db.close();
+//        return x>0;
+//    }
 
-        //Refer Documentation if doesn't work
-        int x = db.update(DATABASE_TABLE,cv,"_id=?",new String[]{String.valueOf(id)});
-        db.close();
-        return x>0;
-    }
-
-    public boolean deleteQuiz(String content){
-        SQLiteDatabase db=this.getWritableDatabase();
-//        db.delete(DATABASE_TABLE,"id=" +id,null);
-        int x = db.delete(DATABASE_TABLE, KEY_C1 +"=?",new String[]{content});
-        db.close();
-        return x>0;
-    }
+//    public boolean deleteQuiz(String content){
+//        SQLiteDatabase db=this.getWritableDatabase();
+//        int x = db.delete(DATABASE_TABLE, KEY_C1 +"=?",new String[]{content});
+//        db.close();
+//        return x>0;
+//    }
 
 }

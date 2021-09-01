@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
@@ -13,7 +12,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.sasank.roundedhorizontalprogress.RoundedHorizontalProgressBar;
@@ -29,15 +27,7 @@ public class ScoreActivity extends AppCompatActivity {
     QuizDatabase quizDb;
     TextView tvScore;
     Dialog dialog;
-//    ProgressBar pbc1;
-//    ProgressBar pbc2;
-//    ProgressBar pbc3;
-//    ProgressBar pbc4;
-//    ProgressBar pbc5;
-//    ProgressBar pbc6;
-//    ProgressBar pbc7;
-//    ProgressBar pbc8;
-    RoundedHorizontalProgressBar pb1;
+
     RoundedHorizontalProgressBar pbc1;
     RoundedHorizontalProgressBar pbc2;
     RoundedHorizontalProgressBar pbc3;
@@ -89,7 +79,7 @@ public class ScoreActivity extends AppCompatActivity {
         int scp2=((int)sc2*100/12),scp3=((int)sc3*100/12),scp4=((int)sc4*100/12),scp5=
                 ((int)sc5*100/12),
                 scp6= ((int)sc6*100/12),scp7=((int)sc7*100/16),scp8=((int)sc8*100/12);
-//        pb1.setProgress(sc);
+
         pbc1.setProgress(scp1);
         pbc2.setProgress(scp2);
         pbc3.setProgress(scp3);

@@ -6,18 +6,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.DataSource;
@@ -30,7 +27,7 @@ import org.json.JSONObject;
 
 public class MemeActivity extends AppCompatActivity {
     ImageView memeImageView;
-    String currenturl="";
+    String currentUrl ="";
     ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,11 +48,11 @@ public class MemeActivity extends AppCompatActivity {
            public void onResponse(JSONObject response)
            {
                try {
-                    currenturl =response.getString("url");
+                    currentUrl =response.getString("url");
                } catch (JSONException e) {
                    e.printStackTrace();
                }
-               Glide.with(MemeActivity.this).load(currenturl).listener(new RequestListener<Drawable>() {
+               Glide.with(MemeActivity.this).load(currentUrl).listener(new RequestListener<Drawable>() {
                    @Override
                    public boolean onLoadFailed(@Nullable @org.jetbrains.annotations.Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource)
                    {
@@ -84,7 +81,7 @@ public class MemeActivity extends AppCompatActivity {
     {
         Intent intent=new Intent(Intent.ACTION_SEND);
         intent.setType("text/plane");
-        intent.putExtra(Intent.EXTRA_TEXT,"Hey , Checkout this cool meme I got from Mental-health-App "+currenturl);
+        intent.putExtra(Intent.EXTRA_TEXT,"Hey , Checkout this cool meme I got from Mental-health-App "+ currentUrl);
         startActivity(Intent.createChooser(intent, "Share this meme Using..."));
     }
     public void nextMeme(View view)

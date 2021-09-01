@@ -113,22 +113,22 @@ public class QuizStatistics extends AppCompatActivity {
     }
 
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch(item.getItemId()){
-            case R.id.Explanation:
-                Button btnClose;
-                dialog.setContentView(R.layout.stats_description);
-                dialog.show();
-                btnClose = dialog.findViewById(R.id.close3);
+        if(item.getItemId()==R.id.Explanation){
+            Button btnClose;
+            dialog.setContentView(R.layout.stats_description);
+            dialog.show();
+            btnClose = dialog.findViewById(R.id.close3);
 
-                btnClose.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialog.dismiss();
-                    }
-                });
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+            btnClose.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.dismiss();
+                }
+            });
+            return true;
+        }
+        else{
+            return super.onOptionsItemSelected(item);
         }
     }
 }

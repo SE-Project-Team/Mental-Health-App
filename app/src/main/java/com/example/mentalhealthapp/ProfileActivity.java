@@ -4,35 +4,25 @@ import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.bumptech.glide.Glide;
-
-import java.io.FileNotFoundException;
-import java.io.IOException;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    public static final String PREFS_NAME= "MyPrefsFile";
     private Button btnEdit,btnBack;
     private TextView tvName,tvBio;
     private ImageView image;
-  //  public static final String SHARED_PREFS="sharedPrefs";
 
     private String imageString;
     @Override
@@ -63,14 +53,6 @@ public class ProfileActivity extends AppCompatActivity {
 
         }
 
-//        String Text1 =sharedPreferences.getString("Text","");
-//        nPassword.setText(Text1);
-//
-//        Bundle bn=getIntent().getExtras();
-//        Bundle bn1=getIntent().getExtras();
-
-
-
         ActivityResultLauncher<Intent> launchSomeActivity = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 new ActivityResultCallback<ActivityResult>() {
@@ -84,7 +66,6 @@ public class ProfileActivity extends AppCompatActivity {
 
                             String Name = data.getStringExtra("Name");
                             String Bio = data.getStringExtra("Bio");
-                            //data.getStringExtra("text");
                             tvName.setText(String.valueOf(Name));
                             tvBio.setText(String.valueOf(Bio));
 
@@ -119,19 +100,12 @@ public class ProfileActivity extends AppCompatActivity {
     public void finish(){
         SharedPreferences sharedPreferences=
                 PreferenceManager.getDefaultSharedPreferences(ProfileActivity.this);
-//        SharedPreferences str1= getSharedPreferences(PREFS_NAME,0);
-//        SharedPreferences.Editor editor1 = str1.edit();
-//        editor1.putString("str1", String.valueOf(str1));
 
         SharedPreferences.Editor editor =sharedPreferences.edit();
         editor.putString("TEXT", tvName.getText().toString());
         editor.putString("bio", tvBio.getText().toString());
         editor.putString("image",imageString);
-//        editor.putString("Text", Text);
         editor.apply();
-//        editor1.commit();
-
-        Toast.makeText(ProfileActivity.this,"Finish Activity",Toast.LENGTH_SHORT).show();
 
         Intent intent=new Intent(ProfileActivity.this,MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,8 +16,6 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.zip.Inflater;
-
 public class JournalPreviewAdapter extends RecyclerView.Adapter<JournalPreviewAdapter.viewHolder>{
 
     private JournalDatabase db;
@@ -40,8 +37,7 @@ public class JournalPreviewAdapter extends RecyclerView.Adapter<JournalPreviewAd
     @Override
     public viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.basic_item_layout_journal_main,parent,false);
-        viewHolder holder=new viewHolder(view);
-        return holder;
+        return  new viewHolder(view);
     }
 
     @Override
