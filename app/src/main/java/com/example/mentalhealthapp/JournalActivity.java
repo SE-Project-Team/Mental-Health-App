@@ -33,6 +33,7 @@ public class JournalActivity extends AppCompatActivity {
         fabActJournal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent=new Intent(JournalActivity.this,Writing.class);
                 startActivity(intent);
             }
@@ -42,6 +43,7 @@ public class JournalActivity extends AppCompatActivity {
         fabCalendar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent =new Intent(JournalActivity.this,CalendarActivity.class);
                 startActivity(intent);
             }
