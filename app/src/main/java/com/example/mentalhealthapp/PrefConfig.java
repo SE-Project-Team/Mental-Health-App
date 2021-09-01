@@ -27,8 +27,6 @@ public  class PrefConfig{
         String jsonString= pref.getString(LIST_KEY,"");
         Gson gson =new Gson();
         Type type = new TypeToken<List<String>>(){}.getType();
-        List<String> list=gson.fromJson(jsonString, type);
-        return list;
-
+        return gson.fromJson(jsonString, type);
     }
 }

@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 
@@ -103,7 +102,7 @@ public class NewsActivity extends AppCompatActivity {
         call.enqueue(new Callback<Headlines>() {
             @Override
             public void onResponse(Call<Headlines> call, Response<Headlines> response) {
-                if (response.isSuccessful() && response.body().getArticles() != null){
+                if (response.isSuccessful() && response.body().getArticles()!= null){
                     swipeRefreshLayout.setRefreshing(false);
                     articles.clear();
                     articles = response.body().getArticles();

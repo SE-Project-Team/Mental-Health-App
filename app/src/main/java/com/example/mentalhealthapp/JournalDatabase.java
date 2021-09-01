@@ -17,6 +17,7 @@ public class JournalDatabase extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME="datadb";
     private static final String DATABASE_TABLE="notestable";
+
     //column names for database table
     private static final String KEY_ID= "_id";
     private static final String KEY_TITLE= "title";
@@ -97,28 +98,25 @@ public class JournalDatabase extends SQLiteOpenHelper {
         db.close();
     }
 
-    public boolean updateJournal(JournalEntry journal,int id){
-        SQLiteDatabase db=this.getWritableDatabase();
-        ContentValues cv=new ContentValues();
-
-        cv.put(KEY_ID,id);
-        cv.put(KEY_TITLE,journal.getTitle());
-        cv.put(KEY_CONTENT,journal.getContent());
-        cv.put(KEY_DAY,journal.getDay());
-        cv.put(KEY_MONTH,journal.getMonth());
-        cv.put(KEY_YEAR,journal.getYear());
-
-        //Refer Documentation if doesn't work
-        int x = db.update(DATABASE_TABLE,cv,"_id=?",new String[]{String.valueOf(id)});
-        db.close();
-        return x>0;
-    }
+//    public boolean updateJournal(JournalEntry journal,int id){
+//        SQLiteDatabase db=this.getWritableDatabase();
+//        ContentValues cv=new ContentValues();
+//
+//        cv.put(KEY_ID,id);
+//        cv.put(KEY_TITLE,journal.getTitle());
+//        cv.put(KEY_CONTENT,journal.getContent());
+//        cv.put(KEY_DAY,journal.getDay());
+//        cv.put(KEY_MONTH,journal.getMonth());
+//        cv.put(KEY_YEAR,journal.getYear());
+//
+//        //Refer Documentation if doesn't work
+//        int x = db.update(DATABASE_TABLE,cv,"_id=?",new String[]{String.valueOf(id)});
+//        db.close();
+//        return x>0;
+//    }
 
     public boolean deleteJournal(String content){
         SQLiteDatabase db=this.getWritableDatabase();
-//        db.delete(DATABASE_TABLE,"id=" +id,null);
-        //TODO WONT WORK BECAUSE ROWID IS NOT INCREMENTING....
-        //TODO pressing back(menu button works fine though) does not delete record from journal view if deleted in calendar
         int x = db.delete(DATABASE_TABLE,KEY_CONTENT+"=?",new String[]{content});
         db.close();
         return x>0;

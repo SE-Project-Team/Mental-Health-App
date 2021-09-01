@@ -20,11 +20,11 @@ public class QuizActivity extends AppCompatActivity {
     private RadioGroup radioGroup;
     private Button clear;
     public int score=0;
-    public int scores[] = new int[8];
+    public int []scores= new int[8];
     public int currQuestion=0;
     public int totalquestions=25;
     public int min, max, random_int;
-    public ArrayList<Question> questions = new ArrayList<Question>();
+    public ArrayList<Question> questions = new ArrayList<>();
 
     // Well-being and ill-being
     Question que1 = new Question("How often do you experience headaches?","Never", "Once or twice a month","Once a week","2-3 times per week","Almost everyday");

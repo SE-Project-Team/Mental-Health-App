@@ -2,7 +2,6 @@ package com.example.mentalhealthapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -30,8 +29,8 @@ public class MainActivity extends AppCompatActivity {
         recyclerView=findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        String card[] = getResources().getStringArray(R.array.cardtext);
-        int profileImage[] = {R.drawable.quiz, R.drawable.news, R.drawable.meme,
+        String []card = getResources().getStringArray(R.array.cardtext);
+        int []profileImage = {R.drawable.quiz, R.drawable.news, R.drawable.meme,
         R.drawable.journal, R.drawable.todolist,R.drawable.ic_baseline_show_chart_24};
         for(int i=0; i<card.length; i++){
             Cards cards = new Cards(profileImage[i],card[i]);
@@ -51,13 +50,13 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch(item.getItemId()){
-            case R.id.Profile:
-                Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
-                startActivity(intent);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if(item.getItemId()==R.id.Profile){
+            Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+            startActivity(intent);
+            return true;
+        }
+        else{
+            return super.onOptionsItemSelected(item);
         }
     }
 }

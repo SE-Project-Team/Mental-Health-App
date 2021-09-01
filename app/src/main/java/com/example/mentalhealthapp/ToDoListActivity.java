@@ -1,23 +1,15 @@
 package com.example.mentalhealthapp;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.SharedPreferences;
-import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.Toolbar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +19,6 @@ public class ToDoListActivity extends AppCompatActivity {
    ListView listView;
    ArrayAdapter<String> arrayAdapter;
    EditText editText;
-   Button b_save,b_load;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -43,13 +34,6 @@ public class ToDoListActivity extends AppCompatActivity {
         listView = findViewById(R.id.id_list_view);
 
         listView.setAdapter(arrayAdapter);
-//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//           public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                TextView textView =(TextView ) view;
-//                textView.setPaintFlags(textView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-//            }
-//        });
 
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
@@ -75,9 +59,6 @@ public class ToDoListActivity extends AppCompatActivity {
             }
         });
         editText =findViewById(R.id.id_edit_text);
-    }
-
-    private void setSupportActionBar(Toolbar toolbar) {
     }
 
     public void addItemToList(View view){

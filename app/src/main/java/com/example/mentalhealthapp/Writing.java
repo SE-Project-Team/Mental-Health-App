@@ -43,7 +43,6 @@ public class Writing extends AppCompatActivity {
                     day = Integer.parseInt(x.substring(8, 10));
                     month = Integer.parseInt(x.substring(5, 7));
                     year = Integer.parseInt(x.substring(0, 4));
-                    Toast.makeText(Writing.this, day + "/" + month + "/" + year, Toast.LENGTH_SHORT).show();
                     if (!noteTitle.getText().toString().equals("") && !noteDetails.getText().toString().equals("")) {
                         db.addNewJournal(new JournalEntry(noteTitle.getText().toString(),
                                 noteDetails.getText().toString(), day, month, year));
@@ -56,7 +55,7 @@ public class Writing extends AppCompatActivity {
                     }
 
                 } catch (Exception e) {
-                    Toast.makeText(Writing.this, "Exception", Toast.LENGTH_SHORT).show();
+
                 }
             }
         });

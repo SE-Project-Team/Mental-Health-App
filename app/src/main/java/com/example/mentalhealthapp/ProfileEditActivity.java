@@ -1,65 +1,44 @@
 package com.example.mentalhealthapp;
 import static android.widget.Toast.makeText;
 
-import static java.lang.System.load;
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
-import android.preference.PreferenceManager;
-import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.bumptech.glide.Glide;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.net.URI;
-
 public class ProfileEditActivity extends AppCompatActivity {
-   public static final String EXTRA_TEXT= "com.example.mentalhealthapp.EXTRA_TEXT";
     public Button btnSave;
     public TextView nText;
     public EditText nName;
     public EditText nBio;
     public EditText nPassword;
     public ImageView image;
-    private static final int PICK_IMAGE = 1;
     Uri imageuri;
-    public String str1;
-   // String str;
-    // public String getString;
     public String Name, Bio, text;
-    public static final String PREFS_NAME= "MyPrefsFile";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_edit);
-        btnSave = ( Button ) findViewById(R.id.btnProfileSave);
+        btnSave = findViewById(R.id.btnProfileSave);
 
-        nText = ( TextView ) findViewById(R.id.id_edit_text);
-        nName = ( EditText ) findViewById(R.id.tvNameProfile);
-        nBio = ( EditText ) findViewById(R.id.tvBioProfile);
-        nPassword = ( EditText ) findViewById(R.id.et_password_cp);
+        nText = findViewById(R.id.id_edit_text);
+        nName = findViewById(R.id.tvNameProfile);
+        nBio = findViewById(R.id.tvBioProfile);
+        nPassword = findViewById(R.id.et_password_cp);
         image = findViewById(R.id.iv_cp);
         nName.setText(getIntent().getStringExtra("Name"));
         nBio.setText(getIntent().getStringExtra("Bio"));
@@ -73,34 +52,12 @@ public class ProfileEditActivity extends AppCompatActivity {
                     @Override
                     public void onActivityResult(ActivityResult result) {
                         if (result.getResultCode() == RESULT_OK) {
-                            makeText(ProfileEditActivity.this, "Image Result Ok",
-                                    Toast.LENGTH_SHORT).show();
+
                             imageuri = result.getData().getData();
                             text=imageuri.toString();
-//                            SharedPreferences text= getSharedPreferences(PREFS_NAME,0);
-//                            str1 =text.getString("text", String.valueOf(text));
 
-                            //Glide.with(ProfileEditActivity.this).load(text).into(image)
                             Glide.with(ProfileEditActivity.this)
                                   .load(text).into(image);
-//                            try {
-//                                makeText(ProfileEditActivity.this, imageuri.toString(),
-//                                        Toast.LENGTH_SHORT).show();
-//                                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), imageuri);
-//                               // File filepath= Environment.getExternalStorageDirectory();
-//                               //  File dir= new File(filepath.getAbsolutePath()+"/Demo");
-//                                // dir.mkdir();
-//                                // File file = new File(dir,System.currentTimeMillis()+".jpg");
-//                             //  // FileOutputStream outputStream = new FileOutputStream(file) ;
-//                               // bitmap.compress(Bitmap.CompressFormat.JPEG,100,outputStream);
-//                              //  Toast.makeText(getApplicationContext(), "Image Saved To Internal !!!",Toast.LENGTH_SHORT).show();
-//                               // outputStream.flush();
-//                               // outputStream.close();
-//                            } catch (FileNotFoundException e) {
-//                                e.printStackTrace();
-//                            } catch (IOException e) {
-//                                e.printStackTrace();
-//                            }
                         }
                     }
                 });
@@ -115,31 +72,20 @@ public class ProfileEditActivity extends AppCompatActivity {
                 launchSomeActivity.launch(Intent.createChooser(gallery, "Select Picture"));
             }
         });
-        //profileImage=(ImageView )findViewById(R.id.iv_cp);
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                //open gallery
-                //Intent openGalleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Audio.Media.EXTERNAL_CONTENT_URI);
-                //startActivityForResult(openGalleryIntent,1000);
                 Name = nName.getText().toString();
                 Bio = nBio.getText().toString();
-//                Text=nPassword.getText().toString();
-//
-
                 makeText(ProfileEditActivity.this, Name + " " + Bio, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(ProfileEditActivity.this, ProfileActivity.class);
                 intent.putExtra("Name", Name);
                 intent.putExtra("Bio", Bio);
-              //  intent.putExtra("image",R.drawable)
                 intent.putExtra("image",text);
-//                intent.putExtra(EXTRA_TEXT,str1);
                 setResult(Activity.RESULT_OK, intent);
                 finish();
             }
-
         });
 
     }
