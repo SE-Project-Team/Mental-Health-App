@@ -23,12 +23,12 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
+public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> { // adapter class for news activity
 
     Context context;
     List<Articles> articles;
 
-    public Adapter(Context context, List<Articles> articles) {
+    public Adapter(Context context, List<Articles> articles) { // class constructor
         this.context = context;
         this.articles = articles;
     }
@@ -76,12 +76,12 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         return articles.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder { // viewholder class for news activity
         TextView tvTitle,tvSource,tvDate;
         ImageView imageView;
         CardView cardView;
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView) { // constructor class
             super(itemView);
 
             tvTitle = itemView.findViewById(R.id.tvTitle);
@@ -94,7 +94,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     }
 
 
-    public String dateTime(String t){
+    public String dateTime(String t){ // method to return time of the article
         PrettyTime prettyTime = new PrettyTime(new Locale(getCountry()));
         String time = null;
         try {
@@ -108,7 +108,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     }
 
-    public String getCountry(){
+    public String getCountry(){ // method to return country of the article
         Locale locale = Locale.getDefault();
         String country = locale.getCountry();
         return country.toLowerCase();

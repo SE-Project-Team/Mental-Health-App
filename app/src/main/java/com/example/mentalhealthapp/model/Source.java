@@ -3,15 +3,17 @@ package com.example.mentalhealthapp.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Source {
+public class Source { // class for source of the article
 
     @SerializedName("id")
     @Expose
-    private String id;
+    private String id; // id of the article
 
     @SerializedName("name")
     @Expose
-    private String name;
+    private String name; // name of the article
+
+    // getters and setters
     public String getId() {
         return id;
     }
@@ -23,6 +25,7 @@ public class Source {
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }

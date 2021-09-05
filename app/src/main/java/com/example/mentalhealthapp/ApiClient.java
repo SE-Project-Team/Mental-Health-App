@@ -3,7 +3,8 @@ package com.example.mentalhealthapp;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ApiClient {
+public class ApiClient { // class for fetching the api
+
     private static final String BASE_URL = "https://newsapi.org/v2/";
     private static ApiClient apiClient;
     private static Retrofit retrofit;

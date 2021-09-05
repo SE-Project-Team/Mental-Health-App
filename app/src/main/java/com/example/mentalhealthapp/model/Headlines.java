@@ -5,41 +5,28 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class Headlines {
+public class Headlines { // class for article headlines
 
     @SerializedName("status")
     @Expose
-    private String status;
+    private String status; // headlines status
 
     @SerializedName("totalResults")
     @Expose
-    private String totalResults;
+    private String totalResults; // total headlines
 
     @SerializedName("articles")
     @Expose
-    private List<Articles> articles;
+    private List<Articles> articles; // total articles
+
+    // getters and setters
 
     public String getStatus() {
         return status;
     }
 
-//    public void setStatus(String status) {
-//        this.status = status;
-//    }
-//
-//    public String getTotalResults() {
-//        return totalResults;
-//    }
-//
-//    public void setTotalResults(String totalResults) {
-//        this.totalResults = totalResults;
-//    }
-
     public List<Articles> getArticles() {
         return articles;
     }
-//
-//    public void setArticles(List<Articles> articles) {
-//        this.articles = articles;
-//    }
+
 }

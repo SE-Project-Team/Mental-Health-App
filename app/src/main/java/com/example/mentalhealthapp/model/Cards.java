@@ -2,28 +2,24 @@ package com.example.mentalhealthapp.model;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-public class Cards {
-    private int imageProfile;
-    private String cardtext;
+public class Cards { // class for card
+
+    private int imageProfile; // card image
+    private String cardtext; // text in the card
 
     public Cards(int imageProfile, String cardtext) {
         this.imageProfile = imageProfile;
         this.cardtext = cardtext;
     }
 
+    // getters and setters
     public int getImageProfile() {
         return imageProfile;
     }
 
-//    public void setImageProfile(int imageProfile) {
-//        this.imageProfile = imageProfile;
-//    }
 
     public String getCardtext() {
         return cardtext;
     }
 
-//    public void setCardtext(String  cardtext) {
-//        this.cardtext = cardtext;
-//    }
 }
